@@ -18,7 +18,7 @@ export default function About() {
         Hey there! I&apos;m Balamurugan M, a passionate front-end developer with a growing interest in full-stack development. I enjoy crafting dynamic, responsive, and visually appealing web applications. With hands-on experience in building projects like Datashore, I aim to merge creativity and logic in every line of code.
       </p>
       <p className="text-muted-foreground">
-        Currently pursuing an MCA, I&apos;m expanding my skills in TypeScript, React, and open-source technologies. I'm also keen on entrepreneurship and have ideas brewing for future ventures. When I&apos;m not coding, you can find me exploring Spanish culture or preparing for exciting tech challenges.
+        Currently pursuing an MCA, I&apos;m expanding my skills in TypeScript, React, and open-source technologies. I&apos;m also keen on entrepreneurship and have ideas brewing for future ventures. When I&apos;m not coding, you can find me exploring Spanish culture or preparing for exciting tech challenges.
       </p>
       {/* Add more paragraphs here for additional content you want to show when expanded */}
     </>

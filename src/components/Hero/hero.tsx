@@ -17,7 +17,7 @@ export default function Hero() {
             className="space-y-6"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-              Hi, I'm{' '}
+              Hi, I&apos;m{' '}
               <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
                 Balamurugan
               </span>

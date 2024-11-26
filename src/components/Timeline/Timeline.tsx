@@ -3,7 +3,7 @@
 import { motion } from "framer-motion"
 import Image from "next/image"
 import { Card } from "@/components/ui/card"
-import { GraduationCap, Briefcase, Code, Database } from 'lucide-react'
+import { GraduationCap, Briefcase, Code } from 'lucide-react'
 import { useState } from "react"
 
 interface TimelineItemProps {

@@ -7,8 +7,10 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card } from "@/components/ui/card"
 import { Send, Mail, User, MessageSquare } from 'lucide-react'
+import { toast } from "sonner"
 
 export default function ContactForm() {
+  const [isLoading, setIsLoading] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,10 +19,30 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Here you would typically send the form data to your backend
-    console.log("Form submitted:", formData)
-    // Reset form after submission
-    setFormData({ name: "", email: "", message: "" })
+    setIsLoading(true)
+
+    try {
+      // Replace this URL with your actual API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
+      toast.success('Message sent successfully!')
+      setFormData({ name: "", email: "", message: "" })
+    } catch (error) {
+      console.error('Error sending message:', error)
+      toast.error('Failed to send message. Please try again.')
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -38,7 +60,7 @@ export default function ContactForm() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-lg text-muted-foreground">
-            Get in Touch
+            Let&apos;s Connect
           </p>
           <h2 className="text-4xl font-bold text-foreground">
             Contact Me
@@ -106,9 +128,19 @@ export default function ContactForm() {
               <Button 
                 type="submit" 
                 className="w-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+                disabled={isLoading}
               >
-                <Send className="h-4 w-4 mr-2" />
-                Send Message
+                {isLoading ? (
+                  <>
+                    <span className="animate-spin mr-2">⏳</span>
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-4 w-4 mr-2" />
+                    Send Message
+                  </>
+                )}
               </Button>
             </form>
           </Card>
