@@ -1,101 +1,155 @@
 "use client"
 
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-import { TypeAnimation } from 'react-type-animation'
-import { Download } from 'lucide-react'
+import { motion } from "framer-motion"
+import Image from "next/image"
+import { Button } from "@/components/ui/button"
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+import { TypeAnimation } from "react-type-animation"
 
 export default function Hero() {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact')
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
-    <section id="home" className="min-h-screen pt-16 px-4 sm:px-6 lg:px-8 flex items-center">
-      <div className="max-w-7xl mx-auto w-full">
+    <section className="min-h-screen flex items-center justify-center py-20 bg-background">
+      <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="space-y-6 text-center lg:text-left"
+            className="space-y-6"
           >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight">
-              Hi, I&apos;m{' '}
-              <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Balamurugan
-              </span>
-            </h1>
-            
-            <div className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-muted-foreground">
-              <TypeAnimation
-                sequence={[
-                  'Full Stack Developer',
-                  1000,
-                  'React Developer',
-                  1000,
-                  'Backend Developer',
-                  1000,
-                ]}
-                wrapper="span"
-                speed={50}
-                repeat={Infinity}
-              />
+            <div className="space-y-4">
+              <motion.h1 
+                className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                Hi, I'm{" "}
+                <span className="text-primary">Bala Murugan</span>
+              </motion.h1>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                className="text-2xl md:text-3xl font-semibold text-muted-foreground"
+              >
+                <TypeAnimation
+                  sequence={[
+                    "Full Stack Developer",
+                    1000,
+                    "Problem Solver",
+                    1000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                />
+              </motion.div>
             </div>
 
-            <p className="text-lg sm:text-xl text-muted-foreground max-w-xl mx-auto lg:mx-0">
-              I build exceptional and accessible digital experiences for the web.
-            </p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="text-lg text-muted-foreground max-w-xl"
+            >
+              I build exceptional digital experiences that combine beautiful design with powerful functionality. 
+              Passionate about creating intuitive and engaging web applications that solve real-world problems.
+            </motion.p>
 
-            <div className="flex gap-4 flex-wrap justify-center lg:justify-start">
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="#contact"
-                className="px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex flex-wrap gap-4"
+            >
+              <Button 
+                size="lg"
+                onClick={scrollToContact}
+                className="bg-primary hover:bg-primary/90"
               >
-                Contact Me
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="#projects"
-                className="px-6 py-3 rounded-lg border border-border hover:bg-accent transition-colors"
+                Get in Touch
+                <Mail className="ml-2 h-4 w-4" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                asChild
               >
-                View Projects
-              </motion.a>
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href="/resume.pdf"
-                download
-                className="px-6 py-3 rounded-lg border border-border hover:bg-accent transition-colors flex items-center gap-2"
+                <a 
+                  href="https://github.com/balawpugazh11" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center"
+                >
+                  GitHub
+                  <Github className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                asChild
               >
-                <Download className="h-4 w-4" />
-                Resume
-              </motion.a>
-            </div>
+                <a 
+                  href="https://www.linkedin.com/in/balawmuruganm/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center"
+                >
+                  LinkedIn
+                  <Linkedin className="ml-2 h-4 w-4" />
+                </a>
+              </Button>
+            </motion.div>
           </motion.div>
 
-          {/* Image */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="order-first lg:order-last"
+            className="relative"
           >
-            <div className="relative aspect-square max-w-md mx-auto">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-blue-600/20 rounded-full blur-3xl" />
-              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary/20">
-                <Image
-                  src="/hero-image.jpeg" 
-                  alt="Hero Image"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  priority
-                />
-              </div>
-            </div>
+            <motion.div
+              className="relative w-64 h-64 md:w-80 md:h-80 mx-auto"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl" />
+              <Image
+                src="/hero-image.jpeg"
+                alt="Bala Murugan"
+                fill
+                className="object-cover rounded-full border-4 border-primary/20"
+                priority
+                sizes="(max-width: 768px) 256px, 320px"
+              />
+            </motion.div>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="flex justify-center mt-12"
+        >
+          <motion.div
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+            className="text-muted-foreground cursor-pointer"
+            onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+          >
+            <ArrowDown className="h-8 w-8" />
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

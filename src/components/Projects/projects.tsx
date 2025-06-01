@@ -1,53 +1,78 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
-import Link from "next/link"
+import { Card } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Github, ExternalLink, Code2, Globe, Database } from "lucide-react"
 
-const projects = [
+interface Project {
+  title: string
+  description: string
+  image: string
+  technologies: string[]
+  githubUrl?: string
+  liveUrl?: string
+  features: string[]
+  category: "frontend" | "fullstack" | "backend"
+}
+
+const projects: Project[] = [
   {
-    title: "Datashore Webpage",
-    description: "A comprehensive website for Datashore, a data analytics startup. The site features an intuitive interface, dynamic content sections, and optimized performance to effectively showcase the company's services and solutions.",
-    image: "/datashore.jpg",
-    tags: ["React.js", "Tailwind CSS", "Netlify", "Responsive Design", "SEO"],
-    link: "https://datashore.netlify.app/",
-    features: [
-      "Custom animations and transitions for enhanced user experience",
-      "Optimized SEO implementation for better visibility",
-      "Responsive design with mobile-first approach",
-      "Integration with contact forms and analytics",
-      "Fast loading times with optimized assets"
-    ]
-  },
-  {
-    title: "FitX - Fitness Tracker Website",
-    description: "A responsive and user-friendly fitness tracker web application designed to help users monitor their workouts, track fitness goals, and maintain a healthy lifestyle.",
-    image: "/project2.jpg",
-    tags: ["React", "TypeScript", "Vercel", "Responsive Design"],
-    link: "https://fitx-9f93uf66y-balawpugazh11s-projects.vercel.app/",
-    features: [
-      "Interactive dashboard for logging workouts and tracking progress",
-      "Responsive design for seamless usage across devices",
-      "Dynamic visualizations to represent fitness metrics",
-      "Intuitive navigation for a smooth user experience"
-    ]
-  },
-  {
-    title: "Personal Portfolio Website",
-    description: "A modern, responsive portfolio website built with Next.js and TypeScript, featuring dark mode, smooth animations, and a clean design to showcase my projects and skills.",
+    title: "Portfolio Website",
+    description: "A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features dark mode, smooth animations, and a clean design.",
     image: "/project3.jpg",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    link: "#",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    githubUrl: "https://github.com/balawpugazh11/portfolio",
+    liveUrl: "https://balawpugazh.vercel.app",
     features: [
-      "Dark/Light mode theme switching",
-      "Smooth scroll and animations using Framer Motion",
-      "Responsive design for all devices",
-      "Server-side rendering for optimal performance"
-    ]
+      "Responsive design with mobile-first approach",
+      "Dark mode support with system preference detection",
+      "Smooth animations and transitions",
+      "SEO optimized with metadata",
+      "Contact form with email integration"
+    ],
+    category: "frontend"
+  },
+  {
+    title: "Datashore",
+    description: "A data analytics platform for businesses to visualize and analyze their data. Built with React and Node.js.",
+    image: "/datashore.jpg",
+    technologies: ["React", "Node.js", "MongoDB", "Express", "Chart.js"],
+    githubUrl: "https://github.com/balawpugazh11/datashore",
+    liveUrl: "https://datashore.netlify.app",
+    features: [
+      "Interactive data visualization",
+      "Real-time data updates",
+      "User authentication and authorization",
+      "Custom dashboard creation",
+      "Data export functionality"
+    ],
+    category: "fullstack"
+  },
+  {
+    title: "Task Management API",
+    description: "A robust RESTful API for task management with user authentication, role-based access control, and real-time updates.",
+    image: "/project2.jpg",
+    technologies: ["Node.js", "Express", "PostgreSQL", "JWT", "Socket.io"],
+    githubUrl: "https://github.com/balawpugazh11/task-management-api",
+    features: [
+      "JWT-based authentication",
+      "Role-based access control",
+      "Real-time updates with WebSocket",
+      "Database optimization",
+      "API documentation with Swagger"
+    ],
+    category: "backend"
   }
 ]
+
+const categoryIcons = {
+  frontend: <Code2 className="h-4 w-4" />,
+  fullstack: <Globe className="h-4 w-4" />,
+  backend: <Database className="h-4 w-4" />
+}
 
 export default function Projects() {
   return (
@@ -60,78 +85,104 @@ export default function Projects() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-lg text-muted-foreground">
-            Browse My Recent
+            My Work
           </p>
           <h2 className="text-4xl font-bold text-foreground">
-            Projects
+            Featured Projects
           </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A showcase of my recent work, demonstrating my skills in web development, 
+            problem-solving, and creating user-friendly applications.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
             >
-              <Card className="overflow-hidden bg-card hover:shadow-xl transition-all duration-300 h-full">
-                <div className="relative h-48 w-full">
+              <Card className="group h-full bg-card hover:shadow-xl transition-all duration-300 overflow-hidden card-hover">
+                <div className="relative aspect-video overflow-hidden">
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover transition-transform duration-300 hover:scale-105"
+                    className="object-cover transition-transform duration-300 group-hover:scale-110 image-elegant"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-xl text-foreground">{project.title}</CardTitle>
-                  <CardDescription className="text-muted-foreground">
-                    {project.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag, tagIndex) => (
-                      <Badge 
-                        key={tagIndex} 
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {project.githubUrl && (
+                      <Button
+                        size="icon"
                         variant="secondary"
-                        className="bg-primary/10 text-primary hover:bg-primary/20"
+                        asChild
+                        className="bg-background/80 hover:bg-background button-elegant"
                       >
-                        {tag}
+                        <a 
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Github className="h-5 w-5" />
+                        </a>
+                      </Button>
+                    )}
+                    {project.liveUrl && (
+                      <Button
+                        size="icon"
+                        variant="secondary"
+                        asChild
+                        className="bg-background/80 hover:bg-background button-elegant"
+                      >
+                        <a 
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="h-5 w-5" />
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+
+                <div className="p-6 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {project.title}
+                    </h3>
+                    <Badge variant="secondary" className="flex items-center gap-1">
+                      {categoryIcons[project.category]}
+                      {project.category}
+                    </Badge>
+                  </div>
+
+                  <p className="text-muted-foreground">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, techIndex) => (
+                      <Badge key={techIndex} variant="outline" className="text-xs">
+                        {tech}
                       </Badge>
                     ))}
                   </div>
-                  {project.features && (
-                    <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
-                      {project.features.map((feature, featureIndex) => (
-                        <li key={featureIndex}>{feature}</li>
-                      ))}
-                    </ul>
-                  )}
-                  <Link 
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-primary hover:text-primary/80 transition-colors"
-                  >
-                    View Project
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 ml-2"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M14 5l7 7m0 0l-7 7m7-7H3"
-                      />
-                    </svg>
-                  </Link>
-                </CardContent>
+
+                  <ul className="space-y-2">
+                    {project.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="text-sm text-muted-foreground flex items-start gap-2">
+                        <span className="text-primary">•</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </Card>
             </motion.div>
           ))}
