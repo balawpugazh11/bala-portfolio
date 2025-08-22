@@ -1,23 +1,19 @@
-import Navbar from '@/components/Navbar/Navbar'
-import Hero from '@/components/Hero/hero'
-import About from '@/components/About/About'
-import Projects from '@/components/Projects/projects'
-import Skills from '@/components/Skills/skills'
-import Timeline from '@/components/Timeline/Timeline'
-import ContactForm from '@/components/ContactForm/ContactForm'
-import Footer from '@/components/Footer/Footer'
+import AppleHero from '@/components/AppleHero/AppleHero'
+import AppleAbout from '@/components/AppleAbout/AppleAbout'
+import AppleProjects from '@/components/AppleProjects/AppleProjects'
+import AppleSkills from '@/components/AppleSkills/AppleSkills'
+import AppleContact from '@/components/AppleContact/AppleContact'
+import AppleNavbar from '@/components/AppleNavbar/AppleNavbar'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <Navbar />
-      <Hero />
-      <About />
-      <Projects />
-      <Skills />
-      <Timeline />
-      <ContactForm />
-      <Footer />
+    <main className="min-h-screen bg-white text-black">
+      <AppleNavbar />
+      <AppleHero />
+      <AppleAbout />
+      <AppleProjects />
+      <AppleSkills />
+      <AppleContact />
     </main>
   )
 }
