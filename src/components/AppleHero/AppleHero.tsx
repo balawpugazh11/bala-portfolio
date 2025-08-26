@@ -82,6 +82,7 @@ export default function AppleHero() {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
+          
           {/* Sparkles decoration */}
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
@@ -105,7 +106,7 @@ export default function AppleHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-bold text-black tracking-tight"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-black tracking-tight leading-tight"
           >
             BALAMURUGAN
           </motion.h1>
@@ -115,7 +116,7 @@ export default function AppleHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-600 tracking-wide"
+            className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-medium text-gray-600 tracking-wide"
           >
             Full-Stack Developer
           </motion.h2>
@@ -125,7 +126,7 @@ export default function AppleHero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-gray-500 max-w-2xl mx-auto leading-relaxed"
           >
             Proven expertise in designing and deploying responsive, user-friendly web applications. 
             Highly skilled in React, Node.js, Express.js, MongoDB, and MySQL with real-time app development.
@@ -153,22 +154,43 @@ export default function AppleHero() {
             ))}
           </motion.div>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="pt-8"
+            className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
           >
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToAbout}
-              className="inline-flex items-center space-x-2 bg-black text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-gray-800 transition-colors duration-200 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center space-x-2 bg-black text-white px-7 py-3 rounded-full text-base sm:text-lg font-medium hover:bg-gray-800 transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
               <span>Learn More</span>
               <ArrowRight className="h-5 w-5" />
             </motion.button>
+
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href="/BALAMURUGAN_M_august_2025.pdf"
+              download
+              className="inline-flex items-center space-x-2 bg-white text-black px-7 py-3 rounded-full text-base sm:text-lg font-medium border border-gray-200 hover:bg-gray-50 transition-colors duration-200 shadow-sm"
+            >
+              <span>Download Resume</span>
+            </motion.a>
+
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              href={process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 bg-blue-600 text-white px-7 py-3 rounded-full text-base sm:text-lg font-medium hover:bg-blue-700 transition-colors duration-200 shadow-md"
+            >
+              <span>Book a Call</span>
+            </motion.a>
           </motion.div>
         </motion.div>
 

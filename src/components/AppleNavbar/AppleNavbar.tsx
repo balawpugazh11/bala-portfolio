@@ -35,7 +35,7 @@ export default function AppleNavbar() {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
             <motion.div
@@ -84,15 +84,15 @@ export default function AppleNavbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md md:hidden"
-            style={{ top: '80px' }}
+            className="fixed left-0 right-0 z-40 bg-white/95 backdrop-blur-md md:hidden"
+            style={{ top: isScrolled ? '64px' : '60px' }}
           >
-            <div className="px-6 py-8 space-y-6">
+            <div className="px-4 sm:px-6 py-6 sm:py-8 space-y-6">
               {['About', 'Projects', 'Skills', 'Contact'].map((item) => (
                 <motion.button
                   key={item}
                   whileHover={{ x: 10 }}
-                  className="block text-black hover:text-gray-600 transition-colors duration-200 text-lg font-medium w-full text-left"
+                  className="block text-black hover:text-gray-600 transition-colors duration-200 text-base sm:text-lg font-medium w-full text-left"
                   onClick={() => scrollToSection(item.toLowerCase())}
                 >
                   {item}

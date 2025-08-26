@@ -32,7 +32,7 @@ export default function AppleAbout() {
   ]
 
   return (
-    <section id="about" className="py-24 bg-gray-50 relative overflow-hidden">
+    <section id="about" className="py-16 sm:py-24 bg-gray-50 relative overflow-hidden">
       {/* Enhanced Background Pattern with floating elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -87,7 +87,7 @@ export default function AppleAbout() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
-              className="text-5xl md:text-6xl font-bold text-black tracking-tight"
+              className="text-3xl sm:text-4xl md:text-5xl font-bold text-black tracking-tight leading-tight"
             >
               About Me
             </motion.h2>
@@ -97,7 +97,7 @@ export default function AppleAbout() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-xl text-gray-600 leading-relaxed"
+              className="text-base sm:text-lg text-gray-600 leading-relaxed"
             >
               Full-Stack Developer with proven expertise in designing and deploying responsive, user-friendly web 
               applications. Highly skilled in both front-end and back-end technologies, including React, Node.js, 
@@ -109,7 +109,7 @@ export default function AppleAbout() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
               viewport={{ once: true }}
-              className="text-xl text-gray-600 leading-relaxed"
+              className="text-base sm:text-lg text-gray-600 leading-relaxed"
             >
               Adept at API integration, real-time app development, and cloud deployment. Committed to writing 
               maintainable code and continuously upgrading skills through advanced training and live projects.
@@ -169,7 +169,7 @@ export default function AppleAbout() {
                 rotateY: 5
               }}
               transition={{ duration: 0.5 }}
-              className="relative w-full h-[600px] rounded-3xl overflow-hidden shadow-2xl"
+              className="relative w-full h-[320px] sm:h-[420px] md:h-[520px] lg:h-[600px] rounded-3xl overflow-hidden shadow-2xl"
             >
               <Image
                 src="/hero-image.jpeg"

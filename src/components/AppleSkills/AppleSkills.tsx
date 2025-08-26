@@ -91,7 +91,7 @@ export default function AppleSkills() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null)
 
   return (
-    <section id="skills" className="py-24 bg-gray-50 relative overflow-hidden">
+    <section id="skills" className="py-16 sm:py-24 bg-gray-50 relative overflow-hidden">
       {/* Enhanced Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
@@ -150,10 +150,10 @@ export default function AppleSkills() {
             <Target className="h-8 w-8 text-blue-500" />
             <span className="text-blue-500 font-semibold">SKILLS & EXPERTISE</span>
           </motion.div>
-          <h2 className="text-5xl md:text-6xl font-bold text-black tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-black tracking-tight mb-6">
             Technical Arsenal
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             A comprehensive toolkit of technologies and frameworks that enable me to 
             build exceptional full-stack applications with modern best practices.
           </p>
@@ -186,7 +186,7 @@ export default function AppleSkills() {
           ))}
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
           {/* Enhanced Skills Progress */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -324,7 +324,7 @@ export default function AppleSkills() {
           </motion.div>
         </div>
 
-        {/* Enhanced Learning Goals */}
+        {/* Enhanced Learning Goals - Timeline */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -352,36 +352,36 @@ export default function AppleSkills() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {learningGoals.map((goal, index) => (
-              <motion.div
-                key={goal.skill}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 border border-transparent hover:border-gray-200"
-              >
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className={`w-10 h-10 ${goal.color} rounded-xl flex items-center justify-center shadow-lg`}>
-                    <goal.icon className="h-5 w-5 text-white" />
-                  </div>
-                  <h4 className="text-lg font-bold text-black">{goal.skill}</h4>
-                </div>
-                <div className="space-y-3">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600 font-medium">Progress</span>
-                    <span className="font-bold text-gray-700">{goal.progress}%</span>
-                  </div>
-                  <Progress value={goal.progress} className="h-3 bg-gray-200" />
-                  <div className="flex justify-between text-xs text-gray-500">
-                    <span>Target: {goal.target}%</span>
-                    <span className="font-medium">{goal.target - goal.progress}% to go</span>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
+          <div className="relative max-w-3xl mx-auto">
+            <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-px bg-gray-200" />
+            <ul className="space-y-6">
+              {learningGoals.map((goal, index) => (
+                <li key={goal.skill} className="relative pl-14 sm:pl-16">
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="bg-white p-5 rounded-2xl shadow-sm border border-gray-100"
+                  >
+                    <div className="absolute left-3.5 sm:left-4 top-5 w-8 h-8 rounded-full flex items-center justify-center shadow ring-2 ring-white" style={{backgroundColor: 'transparent'}}>
+                      <div className={`w-8 h-8 ${goal.color} rounded-full flex items-center justify-center`}>
+                        <goal.icon className="h-4 w-4 text-white" />
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between mb-3">
+                      <h4 className="text-lg font-bold text-black">{goal.skill}</h4>
+                      <span className="text-sm font-semibold text-gray-700">{goal.progress}%</span>
+                    </div>
+                    <Progress value={goal.progress} className="h-2 bg-gray-200" />
+                    <div className="flex justify-between text-xs text-gray-500 mt-2">
+                      <span>Target: {goal.target}%</span>
+                      <span className="font-medium">{goal.target - goal.progress}% to go</span>
+                    </div>
+                  </motion.div>
+                </li>
+              ))}
+            </ul>
           </div>
         </motion.div>
 

@@ -11,13 +11,13 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Balamurugan- Full Stack Developer',
-  description: 'Portfolio of Balamurugan, a passionate Full Stack Developer specializing in React, Node.js, and cloud technologies.',
-  keywords: ['Full Stack Developer', 'React', 'Node.js', 'Web Development', 'Software Engineer'],
+  title: 'Balamurugan | MERN Stack Developer India',
+  description: 'MERN Stack Developer in India: React, Node.js, Express, MongoDB. Building responsive, production-grade apps with modern UX.',
+  keywords: ['MERN Stack Developer', 'React Developer', 'Node.js', 'Express', 'MongoDB', 'Full Stack Developer India', 'Web Development', 'Software Engineer'],
   authors: [{ name: 'Balamurugan' }],
   openGraph: {
-    title: 'Balamurugan - Full Stack Developer',
-    description: 'Portfolio of Balamurugan, a passionate Full Stack Developer specializing in React, Node.js, and cloud technologies.',
+    title: 'Balamurugan | MERN Stack Developer',
+    description: 'React, Node.js, Express, MongoDB – responsive, performant apps and modern UI.',
     type: 'website',
   },
 }
