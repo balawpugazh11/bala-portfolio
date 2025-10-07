@@ -55,7 +55,7 @@ export default function AppleContact() {
         setFormData({ name: '', email: '', message: '' });
         setSubmitStatus('success');
       }
-    } catch (err) {
+    } catch {
       setSubmitStatus('error');
     }
   
@@ -108,7 +108,7 @@ export default function AppleContact() {
   ], [])
 
   return (
-    <section id="contact" className="py-24 bg-white relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-24 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-20" />
@@ -124,16 +124,16 @@ export default function AppleContact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold text-black tracking-tight mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-black tracking-tight mb-6">
             Get In Touch
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
             Ready to start your next project? Let's discuss how I can help bring 
             your ideas to life with exceptional design and development.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -209,7 +209,7 @@ export default function AppleContact() {
                   placeholder="Your Message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="min-h-[120px] text-lg border-gray-200 focus:border-black focus:ring-black resize-none text-white"
+                  className="min-h-[120px] text-base sm:text-lg border-gray-200 focus:border-black focus:ring-black resize-none text-black placeholder:text-gray-500"
                   required
                   disabled={isSubmitting}
                   autoComplete="off"
@@ -350,6 +350,11 @@ export default function AppleContact() {
             </motion.div>
           </motion.div>
         </div>
+      </div>
+      {/* Footer quick contact */}
+      <div className="max-w-7xl mx-auto px-6 mt-12 text-center text-sm text-gray-600">
+        Reach me anytime at <a href="mailto:balawmurugan.jobs@gmail.com" className="underline">balawmurugan.jobs@gmail.com</a>. {' '}
+        Prefer a call? <a href={process.env.NEXT_PUBLIC_CALENDLY_URL || 'https://calendly.com/'} target="_blank" rel="noopener noreferrer" className="underline">Book via Calendly</a>.
       </div>
     </section>
   )
