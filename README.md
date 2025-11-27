@@ -1,40 +1,83 @@
-<<<<<<< HEAD
-# bala-portfolio
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bala Portfolio
 
-## Getting Started
+A modern, responsive personal portfolio website showcasing my journey, projects, and skills as a full-stack developer. Built using **Next.js** and **TypeScript** for performance, SEO, and scalability.
 
-First, run the development server:
+## 🚀 Live Demo
 
-```bash
+Check out the live site: [bala-portfolio-omega.vercel.app](https://bala-portfolio-omega.vercel.app/)
+
+## ✨ Features
+
+- Modern design with mobile responsiveness
+- Highlights professional experience, skills, and tech stack
+- Dynamic section for projects with links and details
+- Integrated contact form with secure email delivery (Nodemailer)
+- Optimized assets and font loading via `next/font` and Geist (Vercel)
+- SEO best practices and accessible navigation
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Next.js, React, TypeScript, Tailwind CSS
+- **Backend/API:** Next.js (API routes), Nodemailer
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel
+
+## 📸 Screenshots
+<img width="2857" height="1528" alt="image" src="https://github.com/user-attachments/assets/245a0bf2-8ae8-43b8-8e64-5e25c1a5f7cb" />
+<img width="2857" height="1533" alt="image" src="https://github.com/user-attachments/assets/7fbd47d1-fca1-49ca-8a5f-e2d0f766b924" />
+
+## 🏗️ Getting Started
+
+1. Clone the repository:
+git clone https://github.com/balawpugazh11/bala-portfolio.git
+cd bala-portfolio
+
+2. Install dependencies:
+npm install
+
+or
+yarn install
+
+3. Run the development server:
 npm run dev
-# or
+
+or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Navigate to [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛡️ Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Copy `.env.example` to `.env.local` and provide credentials (for the contact form/email integration).
 
-## Learn More
+## 📝 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `/src` – All pages and components
+- `/public` – Static assets (images, etc.)
+- `/pages/api` – Email/contact API (Nodemailer)
+- `/styles` – Global styles and Tailwind configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌱 What I Learned
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Advanced Next.js app routing and project-level configuration
+- Responsive UI with Tailwind and custom layouts
+- TypeScript strict typing for scalable codebases
+- Setting up secure API endpoints for server-side functionality
+- SEO/meta tag optimization for portfolio websites
 
-## Deploy on Vercel
+## 📬 Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Email: balawpugazh@gmail.com
+- [LinkedIn](https://www.linkedin.com/in/balawmuruganm/)
+- [GitHub](https://github.com/balawpugazh11)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> b19dbe0 (Initial commit from Create Next App)
+## 🤝 Contributions
+
+Contributions are welcome! Please fork the repository, make changes, and submit a pull request.
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+
+
