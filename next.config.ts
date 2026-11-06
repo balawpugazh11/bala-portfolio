@@ -2,7 +2,12 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["image.thum.io"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "image.thum.io",
+      },
+    ],
   },
 };
 

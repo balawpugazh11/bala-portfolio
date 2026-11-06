@@ -1,7 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { ThemeProvider } from '@/components/theme-provider'
+import { ThemeProvider } from '@/components/common/theme-provider'
 import { Toaster } from 'sonner'
 
 const inter = Inter({ 
@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     title: 'Balamurugan | MERN Stack Developer',
     description: 'React, Node.js, Express, MongoDB – responsive, performant apps and modern UI.',
     type: 'website',
+  },
+  icons: {
+    icon: '/favicon.ico',
   },
 }
 
